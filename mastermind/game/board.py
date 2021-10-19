@@ -68,4 +68,17 @@ class Board:
         
         return text
 
-    
+    def check_code(self, hint):
+        """Checks to see if the guess is the same as the code
+        
+        Args:
+            self(board): an instance of the board class.
+        Returns:
+            correct(bool): A bool confirming whether or not the guess is true.
+        """
+        correct = False
+        
+        if hint == "xxxx":
+            correct = True
+
+        return correct
