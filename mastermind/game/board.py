@@ -64,6 +64,8 @@ class Board:
         
         for x in range(2):
             text += (f"\nPlayer {player.get_name}: {self._items[1]}, {self._items[2]}")
-
+        text += "\n--------------------"
+        
+        return text
 
     
