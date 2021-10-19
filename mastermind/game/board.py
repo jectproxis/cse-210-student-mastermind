@@ -61,8 +61,8 @@ class Board:
         """
 
         text = "\n--------------------"
-
-        for items, words in enumerate(self._items):
+        
+        for x in range(2):
             text += (f"\nPlayer {player.get_name}: {self._items[1]}, {self._items[2]}")
 
 
