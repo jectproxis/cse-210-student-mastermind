@@ -9,6 +9,7 @@ class Board:
             self(Board): an instance of the Board class.
         """
         self._items = []
+        #self.prepare(Player.get_name)
 
     def prepare(self, player):
         """Sets up the board with an entry for each player.
@@ -50,7 +51,7 @@ class Board:
 
         return hint
 
-    def print_board(self, player):
+    def print_board(self):
         """Prints the board to the console.
         
         Args:
@@ -62,8 +63,8 @@ class Board:
 
         text = "\n--------------------"
         
-        for x in range(2):
-            text += (f"\nPlayer {player.get_name}: {self._items[1]}, {self._items[2]}")
+        for name, guess, hint in enumerate(self._items):
+            text += (f"\nPlayer {name}: {guess}, {hint}")
         text += "\n--------------------"
         
         return text
