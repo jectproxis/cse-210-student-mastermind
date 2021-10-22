@@ -9,6 +9,7 @@ class Board:
             self(Board): an instance of the Board class.
         """
         self._items = []
+        self._code = ''
         #self.prepare(Player.get_name)
 
     def prepare(self, player):
@@ -19,12 +20,12 @@ class Board:
             player: player class used to call getname.
         """
         name = player.get_name()
-        code = str(random.randint(1000, 10000))
+        self._code = str(random.randint(1000, 10000))
         guess = "----"
         hint = "****"
-        self._items[name] = [code, guess, hint]
+        self._items.append([name, guess, hint])
         
-    def _create_hint(self, code, guess):
+    def _create_hint(self, guess):
         """Generates a hint based on the given code and guess.
         
         Args:
@@ -40,10 +41,10 @@ class Board:
 
         for index, letter in enumerate(guess):
 
-            if code[index] == letter:
+            if self._code[index] == letter:
                 hint += "x"
 
-            elif letter in code:
+            elif letter in self._code:
                 hint += "o"
 
             else:
@@ -63,8 +64,8 @@ class Board:
 
         text = "\n--------------------"
         
-        for name, guess, hint in enumerate(self._items):
-            text += (f"\nPlayer {name}: {guess}, {hint}")
+        for n in self._items:
+            text += (f"\nPlayer {n[0]}: {n[1]}, {n[2]}")
         text += "\n--------------------"
         
         return text
@@ -77,9 +78,9 @@ class Board:
         Returns:
             correct(bool): A bool confirming whether or not the guess is true.
         """
-        correct = False
+        correct = True
         
         if hint == "xxxx":
-            correct = True
+            correct = False
 
         return correct
