@@ -5,3 +5,4 @@ Mastermind is a guessing game where all the players get a chance to guess a four
 
 Contributors:
 Jeremy Jackson jac17053@byui.edu
+Michael De Spain mdespain35@gmail.com
